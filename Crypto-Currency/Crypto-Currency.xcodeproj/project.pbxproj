@@ -13,7 +13,13 @@
 		CEB201B926B9333000ED19DD /* Crypto_Currency.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEB201B726B9333000ED19DD /* Crypto_Currency.xcdatamodeld */; };
 		CEB201BB26B9333300ED19DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB201BA26B9333300ED19DD /* Assets.xcassets */; };
 		CEB201BE26B9333300ED19DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB201BC26B9333300ED19DD /* LaunchScreen.storyboard */; };
-		CEB201C826B93D4900ED19DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB201C726B93D4900ED19DD /* ViewController.swift */; };
+		CEB201DB26BA499400ED19DD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB201DA26BA499400ED19DD /* HomeViewController.swift */; };
+		CEB201DD26BA49AF00ED19DD /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB201DC26BA49AF00ED19DD /* RankingViewController.swift */; };
+		CEB201DF26BA49DE00ED19DD /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB201DE26BA49DE00ED19DD /* FavoriteViewController.swift */; };
+		CEB201E526BA4A5400ED19DD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB201E326BA4A5400ED19DD /* SearchViewController.swift */; };
+		CEB201E626BA4A5400ED19DD /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB201E426BA4A5400ED19DD /* SearchViewController.xib */; };
+		CEB201E926BA4A6A00ED19DD /* ExchangeRatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB201E726BA4A6A00ED19DD /* ExchangeRatesViewController.swift */; };
+		CEB201EA26BA4A6A00ED19DD /* ExchangeRatesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB201E826BA4A6A00ED19DD /* ExchangeRatesViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +31,13 @@
 		CEB201BA26B9333300ED19DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEB201BD26B9333300ED19DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEB201BF26B9333300ED19DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEB201C726B93D4900ED19DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CEB201DA26BA499400ED19DD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CEB201DC26BA49AF00ED19DD /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		CEB201DE26BA49DE00ED19DD /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		CEB201E326BA4A5400ED19DD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		CEB201E426BA4A5400ED19DD /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		CEB201E726BA4A6A00ED19DD /* ExchangeRatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesViewController.swift; sourceTree = "<group>"; };
+		CEB201E826BA4A6A00ED19DD /* ExchangeRatesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExchangeRatesViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +70,70 @@
 		CEB201AD26B9333000ED19DD /* Crypto-Currency */ = {
 			isa = PBXGroup;
 			children = (
-				CEB201AE26B9333000ED19DD /* AppDelegate.swift */,
-				CEB201B026B9333000ED19DD /* SceneDelegate.swift */,
-				CEB201B426B9333000ED19DD /* Main.storyboard */,
-				CEB201BA26B9333300ED19DD /* Assets.xcassets */,
-				CEB201BC26B9333300ED19DD /* LaunchScreen.storyboard */,
-				CEB201BF26B9333300ED19DD /* Info.plist */,
+				CEB201EB26BA4A9400ED19DD /* Resources */,
+				CEB201D926BA497F00ED19DD /* Scenes */,
+				CEB201D726BA48F000ED19DD /* View */,
+				CEB201D626BA48E900ED19DD /* Model */,
 				CEB201B726B9333000ED19DD /* Crypto_Currency.xcdatamodeld */,
-				CEB201C726B93D4900ED19DD /* ViewController.swift */,
 			);
 			path = "Crypto-Currency";
+			sourceTree = "<group>";
+		};
+		CEB201D626BA48E900ED19DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CEB201D726BA48F000ED19DD /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CEB201D926BA497F00ED19DD /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CEB201E126BA4A0A00ED19DD /* ExchangeRates */,
+				CEB201E026BA49F700ED19DD /* Search */,
+				CEB201DA26BA499400ED19DD /* HomeViewController.swift */,
+				CEB201DC26BA49AF00ED19DD /* RankingViewController.swift */,
+				CEB201DE26BA49DE00ED19DD /* FavoriteViewController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		CEB201E026BA49F700ED19DD /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CEB201E326BA4A5400ED19DD /* SearchViewController.swift */,
+				CEB201E426BA4A5400ED19DD /* SearchViewController.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		CEB201E126BA4A0A00ED19DD /* ExchangeRates */ = {
+			isa = PBXGroup;
+			children = (
+				CEB201E726BA4A6A00ED19DD /* ExchangeRatesViewController.swift */,
+				CEB201E826BA4A6A00ED19DD /* ExchangeRatesViewController.xib */,
+			);
+			path = ExchangeRates;
+			sourceTree = "<group>";
+		};
+		CEB201EB26BA4A9400ED19DD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CEB201AE26B9333000ED19DD /* AppDelegate.swift */,
+				CEB201B026B9333000ED19DD /* SceneDelegate.swift */,
+				CEB201BA26B9333300ED19DD /* Assets.xcassets */,
+				CEB201B426B9333000ED19DD /* Main.storyboard */,
+				CEB201BC26B9333300ED19DD /* LaunchScreen.storyboard */,
+				CEB201BF26B9333300ED19DD /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +196,8 @@
 			files = (
 				CEB201BE26B9333300ED19DD /* LaunchScreen.storyboard in Resources */,
 				CEB201BB26B9333300ED19DD /* Assets.xcassets in Resources */,
+				CEB201EA26BA4A6A00ED19DD /* ExchangeRatesViewController.xib in Resources */,
+				CEB201E626BA4A5400ED19DD /* SearchViewController.xib in Resources */,
 				CEB201B626B9333000ED19DD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,10 +229,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB201DB26BA499400ED19DD /* HomeViewController.swift in Sources */,
+				CEB201E926BA4A6A00ED19DD /* ExchangeRatesViewController.swift in Sources */,
 				CEB201AF26B9333000ED19DD /* AppDelegate.swift in Sources */,
+				CEB201E526BA4A5400ED19DD /* SearchViewController.swift in Sources */,
 				CEB201B126B9333000ED19DD /* SceneDelegate.swift in Sources */,
-				CEB201C826B93D4900ED19DD /* ViewController.swift in Sources */,
+				CEB201DF26BA49DE00ED19DD /* FavoriteViewController.swift in Sources */,
 				CEB201B926B9333000ED19DD /* Crypto_Currency.xcdatamodeld in Sources */,
+				CEB201DD26BA49AF00ED19DD /* RankingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
