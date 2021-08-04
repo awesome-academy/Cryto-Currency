@@ -20,6 +20,10 @@
 		CEB201E626BA4A5400ED19DD /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB201E426BA4A5400ED19DD /* SearchViewController.xib */; };
 		CEB201E926BA4A6A00ED19DD /* ExchangeRatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB201E726BA4A6A00ED19DD /* ExchangeRatesViewController.swift */; };
 		CEB201EA26BA4A6A00ED19DD /* ExchangeRatesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB201E826BA4A6A00ED19DD /* ExchangeRatesViewController.xib */; };
+		CEB201F126BA8EDF00ED19DD /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB201F026BA8EDF00ED19DD /* APIService.swift */; };
+		CEB201F326BA8F0800ED19DD /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB201F226BA8F0800ED19DD /* Response.swift */; };
+		CEB201F526BAA27100ED19DD /* DataCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB201F426BAA27100ED19DD /* DataCoin.swift */; };
+		CEB201F726BAA28300ED19DD /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB201F626BAA28300ED19DD /* Coin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		CEB201E426BA4A5400ED19DD /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		CEB201E726BA4A6A00ED19DD /* ExchangeRatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesViewController.swift; sourceTree = "<group>"; };
 		CEB201E826BA4A6A00ED19DD /* ExchangeRatesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExchangeRatesViewController.xib; sourceTree = "<group>"; };
+		CEB201F026BA8EDF00ED19DD /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		CEB201F226BA8F0800ED19DD /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		CEB201F426BAA27100ED19DD /* DataCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCoin.swift; sourceTree = "<group>"; };
+		CEB201F626BAA28300ED19DD /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +90,10 @@
 		CEB201D626BA48E900ED19DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CEB201F026BA8EDF00ED19DD /* APIService.swift */,
+				CEB201F226BA8F0800ED19DD /* Response.swift */,
+				CEB201F426BAA27100ED19DD /* DataCoin.swift */,
+				CEB201F626BAA28300ED19DD /* Coin.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -231,11 +243,15 @@
 			files = (
 				CEB201DB26BA499400ED19DD /* HomeViewController.swift in Sources */,
 				CEB201E926BA4A6A00ED19DD /* ExchangeRatesViewController.swift in Sources */,
+				CEB201F326BA8F0800ED19DD /* Response.swift in Sources */,
 				CEB201AF26B9333000ED19DD /* AppDelegate.swift in Sources */,
 				CEB201E526BA4A5400ED19DD /* SearchViewController.swift in Sources */,
 				CEB201B126B9333000ED19DD /* SceneDelegate.swift in Sources */,
+				CEB201F726BAA28300ED19DD /* Coin.swift in Sources */,
 				CEB201DF26BA49DE00ED19DD /* FavoriteViewController.swift in Sources */,
 				CEB201B926B9333000ED19DD /* Crypto_Currency.xcdatamodeld in Sources */,
+				CEB201F526BAA27100ED19DD /* DataCoin.swift in Sources */,
+				CEB201F126BA8EDF00ED19DD /* APIService.swift in Sources */,
 				CEB201DD26BA49AF00ED19DD /* RankingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
