@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C8c-hH-XtN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -8,24 +8,136 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Ranking-->
+        <scene sceneID="beh-Wh-3VR">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Crypto_Currency" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="Xda-I9-V5n" customClass="RankingViewController" customModule="Crypto_Currency" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pIc-g7-0bG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="Ktc-13-ttV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Ld8-hA-OqZ"/>
+                    <navigationItem key="navigationItem" title="Ranking" id="aHd-TO-g4N"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FnG-WQ-xpe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-536" y="-359"/>
+            <point key="canvasLocation" x="807" y="-31"/>
+        </scene>
+        <!--CryptoCurrency-->
+        <scene sceneID="k2s-Xw-khn">
+            <objects>
+                <viewController id="V5y-sP-qcj" customClass="HomeViewController" customModule="Crypto_Currency" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="55l-hK-jjp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="lkt-23-Oud"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="CryptoCurrency" id="zQm-B6-Bys"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L4U-iu-u8j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="807.24637681159425" y="-700.44642857142856"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="SaJ-ls-3Fi">
+            <objects>
+                <tabBarController id="C8c-hH-XtN" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OZT-F0-QgA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Q67-nq-F6u" kind="relationship" relationship="viewControllers" id="HWA-bT-PCP"/>
+                        <segue destination="n9D-pN-TE2" kind="relationship" relationship="viewControllers" id="cRs-q1-XQx"/>
+                        <segue destination="rFY-iG-AXy" kind="relationship" relationship="viewControllers" id="jzS-GU-J8D"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i1V-Yb-Qrp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-992" y="-397"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="q4s-nK-nnu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Q67-nq-F6u" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="icons8-home-64" largeContentSizeImage="icons8-home-64" id="XTm-Vi-ste"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P1K-Xf-orc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="V5y-sP-qcj" kind="relationship" relationship="rootViewController" id="7iG-lV-GHl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KH8-O0-7bO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-102.89855072463769" y="-700.44642857142856"/>
+        </scene>
+        <!--Ranking-->
+        <scene sceneID="ijV-Hd-WVI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="n9D-pN-TE2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Ranking" image="icons8-combo-chart-96" id="DGP-UW-Q58"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rpk-6u-ZeL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Xda-I9-V5n" kind="relationship" relationship="rootViewController" id="es9-FD-KY7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vdE-DD-bXd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-103" y="-31"/>
+        </scene>
+        <!--Favorite-->
+        <scene sceneID="hqK-4A-Mcg">
+            <objects>
+                <viewController id="l1X-ak-tn6" customClass="FavoriteViewController" customModule="Crypto_Currency" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HUJ-vo-8pY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="IBl-rw-FUq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favorite" id="enI-GJ-FYT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0d5-tJ-GeR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="805.79710144927537" y="701.78571428571422"/>
+        </scene>
+        <!--Favorite-->
+        <scene sceneID="oVR-Wb-zG9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rFY-iG-AXy" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorite" image="icons8-heart-64" id="z7E-s7-Ae2"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mEy-SI-zWk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="l1X-ak-tn6" kind="relationship" relationship="rootViewController" id="mnz-PL-fVJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z6j-vT-fJV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-104.34782608695653" y="701.78571428571422"/>
         </scene>
     </scenes>
     <resources>
+        <image name="icons8-combo-chart-96" width="32" height="32"/>
+        <image name="icons8-heart-64" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="icons8-home-64" width="21.333333969116211" height="21.333333969116211"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
