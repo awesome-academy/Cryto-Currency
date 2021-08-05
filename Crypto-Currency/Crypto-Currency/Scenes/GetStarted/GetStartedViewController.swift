@@ -102,7 +102,12 @@ final class GetStartedViewController: UIViewController {
     
     @objc
     func handleGetStartedButton(sender: UIButton) {
-        
+        if sender.currentTitle == "Get Started" {
+            dismiss(animated: true, completion: nil)
+        } else {
+            let pageIndex = Int(round(scrollView.contentOffset.x / view.frame.width))
+            scrollView.scrollTo(horizontalPage: pageIndex + 1, animated: true)
+        }
     }
     
 }
