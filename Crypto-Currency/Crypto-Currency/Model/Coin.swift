@@ -12,14 +12,14 @@ struct Coin: Codable {
     let symbol: String
     let name: String
     let iconUrl: String
-    let marketCap: String
+    let marketCap: String?
     let price: String
     let change: String
     let rank: Int
     let volume: String
     let btcPrice: String
     
-    private enum CodingKeys : String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case uuid
         case symbol
         case name
