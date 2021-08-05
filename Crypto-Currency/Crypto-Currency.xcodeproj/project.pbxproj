@@ -24,6 +24,10 @@
 		CEB201F326BA8F0800ED19DD /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB201F226BA8F0800ED19DD /* Response.swift */; };
 		CEB201F526BAA27100ED19DD /* DataCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB201F426BAA27100ED19DD /* DataCoin.swift */; };
 		CEB201F726BAA28300ED19DD /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB201F626BAA28300ED19DD /* Coin.swift */; };
+		CEB2020426BB89CB00ED19DD /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2020326BB89CB00ED19DD /* UIView+Extensions.swift */; };
+		CEB2020626BB8B9800ED19DD /* UISrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2020526BB8B9800ED19DD /* UISrollView+Extensions.swift */; };
+		CEB2020D26BB8DF300ED19DD /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2020C26BB8DF300ED19DD /* GetStartedViewController.swift */; };
+		CEB2020F26BB9C6F00ED19DD /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2020E26BB9C6F00ED19DD /* UILabel+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		CEB201F226BA8F0800ED19DD /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		CEB201F426BAA27100ED19DD /* DataCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCoin.swift; sourceTree = "<group>"; };
 		CEB201F626BAA28300ED19DD /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		CEB2020326BB89CB00ED19DD /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		CEB2020526BB8B9800ED19DD /* UISrollView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISrollView+Extensions.swift"; sourceTree = "<group>"; };
+		CEB2020C26BB8DF300ED19DD /* GetStartedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedViewController.swift; sourceTree = "<group>"; };
+		CEB2020E26BB9C6F00ED19DD /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +116,7 @@
 		CEB201D926BA497F00ED19DD /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				CEB2020726BB8CCF00ED19DD /* GetStarted */,
 				CEB201E126BA4A0A00ED19DD /* ExchangeRates */,
 				CEB201E026BA49F700ED19DD /* Search */,
 				CEB201DA26BA499400ED19DD /* HomeViewController.swift */,
@@ -138,6 +147,7 @@
 		CEB201EB26BA4A9400ED19DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CEB2020226BB88C700ED19DD /* Helpers */,
 				CEB201AE26B9333000ED19DD /* AppDelegate.swift */,
 				CEB201B026B9333000ED19DD /* SceneDelegate.swift */,
 				CEB201BA26B9333300ED19DD /* Assets.xcassets */,
@@ -146,6 +156,24 @@
 				CEB201BF26B9333300ED19DD /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		CEB2020226BB88C700ED19DD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CEB2020326BB89CB00ED19DD /* UIView+Extensions.swift */,
+				CEB2020526BB8B9800ED19DD /* UISrollView+Extensions.swift */,
+				CEB2020E26BB9C6F00ED19DD /* UILabel+Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CEB2020726BB8CCF00ED19DD /* GetStarted */ = {
+			isa = PBXGroup;
+			children = (
+				CEB2020C26BB8DF300ED19DD /* GetStartedViewController.swift */,
+			);
+			path = GetStarted;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,13 +274,17 @@
 				CEB201F326BA8F0800ED19DD /* Response.swift in Sources */,
 				CEB201AF26B9333000ED19DD /* AppDelegate.swift in Sources */,
 				CEB201E526BA4A5400ED19DD /* SearchViewController.swift in Sources */,
+				CEB2020426BB89CB00ED19DD /* UIView+Extensions.swift in Sources */,
 				CEB201B126B9333000ED19DD /* SceneDelegate.swift in Sources */,
 				CEB201F726BAA28300ED19DD /* Coin.swift in Sources */,
 				CEB201DF26BA49DE00ED19DD /* FavoriteViewController.swift in Sources */,
+				CEB2020D26BB8DF300ED19DD /* GetStartedViewController.swift in Sources */,
 				CEB201B926B9333000ED19DD /* Crypto_Currency.xcdatamodeld in Sources */,
 				CEB201F526BAA27100ED19DD /* DataCoin.swift in Sources */,
+				CEB2020F26BB9C6F00ED19DD /* UILabel+Extensions.swift in Sources */,
 				CEB201F126BA8EDF00ED19DD /* APIService.swift in Sources */,
 				CEB201DD26BA49AF00ED19DD /* RankingViewController.swift in Sources */,
+				CEB2020626BB8B9800ED19DD /* UISrollView+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
