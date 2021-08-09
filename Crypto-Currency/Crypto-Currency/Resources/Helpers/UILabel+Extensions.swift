@@ -15,4 +15,23 @@ public extension UILabel {
         trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
+    
+    func formatChange(percentChange: String) {
+        guard let percent = Double(percentChange) else {
+            return
+        }
+        text = "\(String(format: "%.2f", percent))%"
+        textColor = percent > 0 ? .green : .red
+    }
+    
+    func formatPrice(price: String) {
+        guard let price = Double(price) else {
+            return
+        }
+        if price > 1 {
+            text = "\(String(format: "%.2f", price)) US$"
+        } else {
+            text = "\(String(format: "%.5f", price)) US$"
+        }
+    }
 }
