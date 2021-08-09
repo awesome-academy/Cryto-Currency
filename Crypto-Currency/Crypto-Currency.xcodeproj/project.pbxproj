@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		CE89307426BFE0590067793D /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE89307326BFE0590067793D /* Keys.plist */; };
 		CE89307626C0202E0067793D /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89307526C0202E0067793D /* ImageCache.swift */; };
+		CE89308126C112970067793D /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89307F26C112960067793D /* CoinTableViewCell.swift */; };
+		CE89308226C112970067793D /* CoinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE89308026C112960067793D /* CoinTableViewCell.xib */; };
+		CE89308426C15A270067793D /* ResponseRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89308326C15A270067793D /* ResponseRanking.swift */; };
+		CE89308626C17FC10067793D /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89308526C17FC10067793D /* CustomError.swift */; };
+		CE89308926C211FA0067793D /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89308826C211FA0067793D /* AlertController.swift */; };
+		CE89308C26C2217E0067793D /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89308A26C2217E0067793D /* LoadingTableViewCell.swift */; };
+		CE89308D26C2217E0067793D /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE89308B26C2217E0067793D /* LoadingTableViewCell.xib */; };
 		CEB201AF26B9333000ED19DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB201AE26B9333000ED19DD /* AppDelegate.swift */; };
 		CEB201B126B9333000ED19DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB201B026B9333000ED19DD /* SceneDelegate.swift */; };
 		CEB201B626B9333000ED19DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB201B426B9333000ED19DD /* Main.storyboard */; };
@@ -41,6 +48,13 @@
 /* Begin PBXFileReference section */
 		CE89307326BFE0590067793D /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		CE89307526C0202E0067793D /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		CE89307F26C112960067793D /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
+		CE89308026C112960067793D /* CoinTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinTableViewCell.xib; sourceTree = "<group>"; };
+		CE89308326C15A270067793D /* ResponseRanking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseRanking.swift; sourceTree = "<group>"; };
+		CE89308526C17FC10067793D /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		CE89308826C211FA0067793D /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		CE89308A26C2217E0067793D /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
+		CE89308B26C2217E0067793D /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
 		CEB201AB26B9333000ED19DD /* Crypto-Currency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crypto-Currency.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB201AE26B9333000ED19DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEB201B026B9333000ED19DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +97,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE89307D26C111710067793D /* Ranking */ = {
+			isa = PBXGroup;
+			children = (
+				CE89307E26C112800067793D /* Cell */,
+				CEB201DC26BA49AF00ED19DD /* RankingViewController.swift */,
+			);
+			path = Ranking;
+			sourceTree = "<group>";
+		};
+		CE89307E26C112800067793D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE89307F26C112960067793D /* CoinTableViewCell.swift */,
+				CE89308026C112960067793D /* CoinTableViewCell.xib */,
+				CE89308A26C2217E0067793D /* LoadingTableViewCell.swift */,
+				CE89308B26C2217E0067793D /* LoadingTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CE89308726C211E40067793D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CE89308826C211FA0067793D /* AlertController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		CEB201A226B9333000ED19DD = {
 			isa = PBXGroup;
 			children = (
@@ -116,11 +158,13 @@
 			children = (
 				CEB2022226BCE7C700ED19DD /* Networking */,
 				CEB201F226BA8F0800ED19DD /* Response.swift */,
+				CE89308326C15A270067793D /* ResponseRanking.swift */,
 				CEB201F426BAA27100ED19DD /* DataCoin.swift */,
 				CEB201F626BAA28300ED19DD /* Coin.swift */,
 				CEB2021C26BCDD4400ED19DD /* EndPoint.swift */,
 				CEB2021E26BCE07900ED19DD /* ReusableView.swift */,
 				CE89307526C0202E0067793D /* ImageCache.swift */,
+				CE89308526C17FC10067793D /* CustomError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,11 +179,11 @@
 		CEB201D926BA497F00ED19DD /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				CEB2021026BC273600ED19DD /* Home */,
 				CEB2020726BB8CCF00ED19DD /* GetStarted */,
 				CEB201E126BA4A0A00ED19DD /* ExchangeRates */,
 				CEB201E026BA49F700ED19DD /* Search */,
-				CEB201DC26BA49AF00ED19DD /* RankingViewController.swift */,
+				CEB2021026BC273600ED19DD /* Home */,
+				CE89307D26C111710067793D /* Ranking */,
 				CEB201DE26BA49DE00ED19DD /* FavoriteViewController.swift */,
 			);
 			path = Scenes;
@@ -166,6 +210,7 @@
 		CEB201EB26BA4A9400ED19DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE89308726C211E40067793D /* Common */,
 				CEB2020226BB88C700ED19DD /* Helpers */,
 				CEB201AE26B9333000ED19DD /* AppDelegate.swift */,
 				CEB201B026B9333000ED19DD /* SceneDelegate.swift */,
@@ -284,6 +329,8 @@
 			files = (
 				CEB201BE26B9333300ED19DD /* LaunchScreen.storyboard in Resources */,
 				CEB2021526BC2D2900ED19DD /* CoinCollectionViewCell.xib in Resources */,
+				CE89308226C112970067793D /* CoinTableViewCell.xib in Resources */,
+				CE89308D26C2217E0067793D /* LoadingTableViewCell.xib in Resources */,
 				CEB201BB26B9333300ED19DD /* Assets.xcassets in Resources */,
 				CE89307426BFE0590067793D /* Keys.plist in Resources */,
 				CEB201EA26BA4A6A00ED19DD /* ExchangeRatesViewController.xib in Resources */,
@@ -319,6 +366,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE89308926C211FA0067793D /* AlertController.swift in Sources */,
+				CE89308626C17FC10067793D /* CustomError.swift in Sources */,
 				CE89307626C0202E0067793D /* ImageCache.swift in Sources */,
 				CEB201DB26BA499400ED19DD /* HomeViewController.swift in Sources */,
 				CEB201E926BA4A6A00ED19DD /* ExchangeRatesViewController.swift in Sources */,
@@ -328,6 +377,7 @@
 				CEB2020426BB89CB00ED19DD /* UIView+Extensions.swift in Sources */,
 				CEB201B126B9333000ED19DD /* SceneDelegate.swift in Sources */,
 				CEB201F726BAA28300ED19DD /* Coin.swift in Sources */,
+				CE89308C26C2217E0067793D /* LoadingTableViewCell.swift in Sources */,
 				CEB201DF26BA49DE00ED19DD /* FavoriteViewController.swift in Sources */,
 				CEB2020D26BB8DF300ED19DD /* GetStartedViewController.swift in Sources */,
 				CEB201B926B9333000ED19DD /* Crypto_Currency.xcdatamodeld in Sources */,
@@ -336,10 +386,12 @@
 				CEB201F526BAA27100ED19DD /* DataCoin.swift in Sources */,
 				CEB2021726BC54F800ED19DD /* UIImageView+Extensions.swift in Sources */,
 				CEB2020F26BB9C6F00ED19DD /* UILabel+Extensions.swift in Sources */,
+				CE89308426C15A270067793D /* ResponseRanking.swift in Sources */,
 				CEB201F126BA8EDF00ED19DD /* APIService.swift in Sources */,
 				CEB201DD26BA49AF00ED19DD /* RankingViewController.swift in Sources */,
 				CEB2022126BCE5B400ED19DD /* RepositoryAPI.swift in Sources */,
 				CEB2020626BB8B9800ED19DD /* UISrollView+Extensions.swift in Sources */,
+				CE89308126C112970067793D /* CoinTableViewCell.swift in Sources */,
 				CEB2021426BC2D2900ED19DD /* CoinCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

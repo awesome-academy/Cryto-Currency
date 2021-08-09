@@ -24,12 +24,7 @@ class APIService {
         return value
       }
     }
-    
-    enum CustomError: Error {
-        case invalidUrl
-        case invalidData
-    }
-    
+
     enum HTTPMethod: String {
         case get = "GET"
         case head = "HEAD"
