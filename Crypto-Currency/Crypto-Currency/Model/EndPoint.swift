@@ -12,4 +12,6 @@ enum EndPoint: String {
     case topChange = "https://api.coinranking.com/v2/coins?orderBy=change&limit=10"
     case top24hVolume = "https://api.coinranking.com/v2/coins?orderBy=24hVolume&limit=10"
     case topMarketCap = "https://api.coinranking.com/v2/coins?orderBy=marketCap&limit=10"
+    case ranking = "https://api.coinranking.com/v2/coins?limit=30"
+    case offset = "https://api.coinranking.com/v2/coins?limit=10&offset="
 }
