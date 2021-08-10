@@ -327,6 +327,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="scrollView" destination="zVy-nx-xaR" id="Y0N-RP-gz3"/>
                         <outlet property="top24hVolumeCollection" destination="p0z-Rf-tMQ" id="WY0-QE-i4v"/>
                         <outlet property="topChangeCollection" destination="73q-tI-wSy" id="Yt1-zO-3iB"/>
                         <outlet property="topCoinCollection" destination="bqn-x4-jNk" id="vAt-ao-DZw"/>

@@ -41,4 +41,11 @@ public extension UILabel {
         }
         text = "\(String(format: "%.2f", marketCap / 1000000000)) Bn"
     }
+    
+    func formatTotal(marketCap: String) {
+        guard let marketCap = Double(marketCap) else {
+            return
+        }
+        text = "\(String(format: "%.2f", marketCap / 1000000)) M"
+    }
 }

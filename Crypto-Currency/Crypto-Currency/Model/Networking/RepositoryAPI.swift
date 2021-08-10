@@ -25,10 +25,40 @@ class RepositoryAPI {
                                   expecting: ResponseRanking<DataCoin>.self) { result in
             switch result {
             case .success(let result):
+                if let data = result.data {
+                    completion(data.coins, nil)
+                }
+                completion(nil, CustomError.invalidData)
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
+    
+    func getDetail(uuid: String, completion: @escaping (CoinDetail?, Error?) -> Void) {
+        APIService.shared.request(urlString: "\(EndPoint.detail.rawValue)\(uuid)",
+                                  expecting: ResponseDetail<DataDetailCoin>.self) { result in
+            switch result {
+            case .success(let result):
+                if let data = result.data {
+                    completion(data.coin, nil)
+                }
+                completion(nil, CustomError.invalidData)
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
+    
+    func getHistoryPrice(time: String, completion: @escaping ([History]?, Error?) -> Void) {
+        APIService.shared.request(urlString: "\(EndPoint.history.rawValue)\(time)",
+                                  expecting: ResponseDetail<PriceHistory>.self) { result in
+            switch result {
+            case .success(let result):
                 if result.data == nil {
                     completion(nil, CustomError.invalidData)
                 }
-                completion(result.data?.coins, nil)
+                completion(result.data?.history, nil)
             case .failure(let error):
                 completion(nil, error)
             }

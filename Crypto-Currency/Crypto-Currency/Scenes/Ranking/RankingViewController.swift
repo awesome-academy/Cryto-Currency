@@ -24,6 +24,11 @@ final class RankingViewController: UIViewController {
         loadAPI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.tabBarController?.tabBar.isHidden = false
+    }
+    
     private func configureTableView() {
         rankingTableView.delegate = self
         rankingTableView.dataSource = self
@@ -131,6 +136,13 @@ extension RankingViewController: UITableViewDelegate, UITableViewDataSource, UIS
                 loadMore()
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailScreen = DetailViewController()
+        detailScreen.uuid = coins[indexPath.row].uuid
+        navigationController?.tabBarController?.tabBar.isHidden = true
+        navigationController?.pushViewController(detailScreen, animated: true)
     }
     
 }
