@@ -12,6 +12,7 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var topCoinCollection: UICollectionView!
     @IBOutlet private weak var topChangeCollection: UICollectionView!
     @IBOutlet private weak var top24hVolumeCollection: UICollectionView!
+    @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var topMarketCapCollection: UICollectionView!
     
     private var topCoins = [Coin]()
@@ -21,13 +22,18 @@ final class HomeViewController: UIViewController {
     
     private let repository = RepositoryAPI()
     
-    private var nsCache = NSCache<NSString, UIImage>()
+    private var isLoading = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showGetStartedScreen()
         configureCollection()
         loadAPI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.tabBarController?.tabBar.isHidden = false
     }
     
     private func configureCollection() {
@@ -47,6 +53,23 @@ final class HomeViewController: UIViewController {
         topMarketCapCollection.dataSource = self
         topMarketCapCollection.register(CoinCollectionViewCell.nib,
                                         forCellWithReuseIdentifier: CoinCollectionViewCell.reuseIdentifier)
+        
+        scrollView.refreshControl = UIRefreshControl()
+        scrollView.refreshControl?.addTarget(self,
+                                             action: #selector(handleRefreshControl),
+                                             for: .valueChanged)
+    }
+    
+    @objc func handleRefreshControl() {
+        if !isLoading {
+            isLoading = true
+            loadAPI()
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.scrollView.refreshControl?.endRefreshing()
+            }
+        }
+        
     }
     
     private func showGetStartedScreen() {
@@ -68,6 +91,7 @@ final class HomeViewController: UIViewController {
         repository.getCoins(urlString: EndPoint.topCoin.rawValue) { [weak self] coins, error in
             guard let self = self else { return }
             if let error = error {
+                self.isLoading = false
                 print(error)
             }
             if let coins = coins {
@@ -80,6 +104,7 @@ final class HomeViewController: UIViewController {
         repository.getCoins(urlString: EndPoint.topChange.rawValue) { [weak self] coins, error in
             guard let self = self else { return }
             if let error = error {
+                self.isLoading = false
                 print(error)
             }
             if let coins = coins {
@@ -92,6 +117,7 @@ final class HomeViewController: UIViewController {
         repository.getCoins(urlString: EndPoint.top24hVolume.rawValue) { [weak self] coins, error in
             guard let self = self else { return }
             if let error = error {
+                self.isLoading = false
                 print(error)
             }
             if let coins = coins {
@@ -104,6 +130,7 @@ final class HomeViewController: UIViewController {
         repository.getCoins(urlString: EndPoint.topMarketCap.rawValue) { [weak self] coins, error in
             guard let self = self else { return }
             if let error = error {
+                self.isLoading = false
                 print(error)
             }
             if let coins = coins {
@@ -114,6 +141,7 @@ final class HomeViewController: UIViewController {
 
         dispatchGroup.notify(queue: .main, execute: { [weak self] in
             guard let self = self else { return }
+            self.isLoading = false
             self.topCoinCollection.reloadData()
             self.topChangeCollection.reloadData()
             self.top24hVolumeCollection.reloadData()
@@ -189,5 +217,23 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailScreen = DetailViewController()
+        switch collectionView {
+        case topCoinCollection:
+            detailScreen.uuid = topCoins[indexPath.item].uuid
+        case topChangeCollection:
+            detailScreen.uuid = topChangeCoins[indexPath.item].uuid
+        case top24hVolumeCollection:
+            detailScreen.uuid = top24hVolumeCoins[indexPath.item].uuid
+        case topMarketCapCollection:
+            detailScreen.uuid = topMarketCapCoins[indexPath.item].uuid
+        default:
+            return detailScreen.uuid = ""
+        }
+        navigationController?.tabBarController?.tabBar.isHidden = true
+        navigationController?.pushViewController(detailScreen, animated: true)
     }
 }
