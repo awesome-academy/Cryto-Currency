@@ -8,7 +8,7 @@
 import UIKit
 
 final class RankingViewController: UIViewController {
-
+    
     @IBOutlet private weak var rankingTableView: UITableView!
     
     private let refreshControl = UIRefreshControl()
@@ -24,11 +24,6 @@ final class RankingViewController: UIViewController {
         loadAPI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.tabBarController?.tabBar.isHidden = false
-    }
-    
     private func configureTableView() {
         rankingTableView.delegate = self
         rankingTableView.dataSource = self
@@ -42,14 +37,15 @@ final class RankingViewController: UIViewController {
         rankingTableView.addSubview(refreshControl)
     }
     
-    @objc func refresh(_ sender: AnyObject) {
+    @objc private func refresh(_ sender: AnyObject) {
         loadAPI()
         rankingTableView.reloadData()
         refreshControl.endRefreshing()
     }
     
     private func loadAPI() {
-        repository.getCoins(urlString: EndPoint.ranking.rawValue) { [weak self] coins, error in
+        repository.getCoins(
+            urlString: Network.shared.getRankingURL()) { [weak self] coins, error in
             guard let self = self else { return }
             if let error = error {
                 print(error.localizedDescription)
@@ -86,7 +82,8 @@ final class RankingViewController: UIViewController {
     
     @IBAction func handleSearchBarButton(_ sender: UIBarButtonItem) {
         let searchScreen = SearchViewController()
-        navigationController?.pushViewController(searchScreen, animated: true)
+        searchScreen.modalPresentationStyle = .fullScreen
+        present(searchScreen, animated: true, completion: nil)
     }
 }
 
@@ -128,7 +125,7 @@ extension RankingViewController: UITableViewDelegate, UITableViewDataSource, UIS
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-   
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastItem = coins.count - 1
         if indexPath.row == lastItem {
@@ -141,8 +138,8 @@ extension RankingViewController: UITableViewDelegate, UITableViewDataSource, UIS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailScreen = DetailViewController()
         detailScreen.uuid = coins[indexPath.row].uuid
-        navigationController?.tabBarController?.tabBar.isHidden = true
-        navigationController?.pushViewController(detailScreen, animated: true)
+        detailScreen.modalPresentationStyle = .fullScreen
+        present(detailScreen, animated: true, completion: nil)
     }
     
 }

@@ -21,14 +21,15 @@ class RepositoryAPI {
     }
     
     func getMore(offset: String, completion: @escaping ([Coin]?, Error?) -> Void) {
-        APIService.shared.request(urlString: "\(EndPoint.offset.rawValue)\(offset)",
+        APIService.shared.request(urlString: Network.shared.getOffsetURL(offset: offset),
                                   expecting: ResponseRanking<DataCoin>.self) { result in
             switch result {
             case .success(let result):
-                if let data = result.data {
-                    completion(data.coins, nil)
+                guard let data = result.data else {
+                    completion(nil, CustomError.invalidData)
+                    return
                 }
-                completion(nil, CustomError.invalidData)
+                completion(data.coins, nil)
             case .failure(let error):
                 completion(nil, error)
             }
@@ -36,14 +37,15 @@ class RepositoryAPI {
     }
     
     func getDetail(uuid: String, completion: @escaping (CoinDetail?, Error?) -> Void) {
-        APIService.shared.request(urlString: "\(EndPoint.detail.rawValue)\(uuid)",
+        APIService.shared.request(urlString: Network.shared.getDetailURL(uuid: uuid),
                                   expecting: ResponseDetail<DataDetailCoin>.self) { result in
             switch result {
             case .success(let result):
-                if let data = result.data {
-                    completion(data.coin, nil)
+                guard let data = result.data else {
+                    completion(nil, CustomError.invalidData)
+                    return
                 }
-                completion(nil, CustomError.invalidData)
+                completion(data.coin, nil)
             case .failure(let error):
                 completion(nil, error)
             }
@@ -51,14 +53,31 @@ class RepositoryAPI {
     }
     
     func getHistoryPrice(time: String, completion: @escaping ([History]?, Error?) -> Void) {
-        APIService.shared.request(urlString: "\(EndPoint.history.rawValue)\(time)",
+        APIService.shared.request(urlString: Network.shared.getHistoryURL(time: time),
                                   expecting: ResponseDetail<PriceHistory>.self) { result in
             switch result {
             case .success(let result):
-                if result.data == nil {
+                guard let data = result.data else {
                     completion(nil, CustomError.invalidData)
+                    return
                 }
-                completion(result.data?.history, nil)
+                completion(data.history, nil)
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
+    
+    func getSimpleCoin(name: String, completion: @escaping ([SimpleCoin]?, Error?) -> Void) {
+        APIService.shared.request(urlString: Network.shared.getSearchURL(name: name),
+                                  expecting: ResponseDetail<SimpleDataCoin>.self) { result in
+            switch result {
+            case .success(let result):
+                guard let data = result.data else {
+                    completion(nil, CustomError.invalidData)
+                    return
+                }
+                completion(data.coins, nil)
             case .failure(let error):
                 completion(nil, error)
             }
