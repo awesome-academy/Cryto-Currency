@@ -31,11 +31,6 @@ final class HomeViewController: UIViewController {
         loadAPI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.tabBarController?.tabBar.isHidden = false
-    }
-    
     private func configureCollection() {
         topCoinCollection.delegate = self
         topCoinCollection.dataSource = self
@@ -60,7 +55,7 @@ final class HomeViewController: UIViewController {
                                              for: .valueChanged)
     }
     
-    @objc func handleRefreshControl() {
+    @objc private func handleRefreshControl() {
         if !isLoading {
             isLoading = true
             loadAPI()
@@ -86,9 +81,10 @@ final class HomeViewController: UIViewController {
     
     private func loadAPI() {
         let dispatchGroup = DispatchGroup()
+        var urlResquest = Network.shared.getCoinsURL(path: Path.topCoin)
         
         dispatchGroup.enter()
-        repository.getCoins(urlString: EndPoint.topCoin.rawValue) { [weak self] coins, error in
+        repository.getCoins(urlString: urlResquest) { [weak self] coins, error in
             guard let self = self else { return }
             if let error = error {
                 self.isLoading = false
@@ -99,9 +95,10 @@ final class HomeViewController: UIViewController {
                 dispatchGroup.leave()
             }
         }
-
+        
         dispatchGroup.enter()
-        repository.getCoins(urlString: EndPoint.topChange.rawValue) { [weak self] coins, error in
+        urlResquest = Network.shared.getCoinsURL(path: Path.topChange)
+        repository.getCoins(urlString: urlResquest) { [weak self] coins, error in
             guard let self = self else { return }
             if let error = error {
                 self.isLoading = false
@@ -112,9 +109,10 @@ final class HomeViewController: UIViewController {
                 dispatchGroup.leave()
             }
         }
-
+        
         dispatchGroup.enter()
-        repository.getCoins(urlString: EndPoint.top24hVolume.rawValue) { [weak self] coins, error in
+        urlResquest = Network.shared.getCoinsURL(path: Path.top24Volume)
+        repository.getCoins(urlString: urlResquest) { [weak self] coins, error in
             guard let self = self else { return }
             if let error = error {
                 self.isLoading = false
@@ -125,9 +123,10 @@ final class HomeViewController: UIViewController {
                 dispatchGroup.leave()
             }
         }
-
+        
         dispatchGroup.enter()
-        repository.getCoins(urlString: EndPoint.topMarketCap.rawValue) { [weak self] coins, error in
+        urlResquest = Network.shared.getCoinsURL(path: Path.topMarketCap)
+        repository.getCoins(urlString: urlResquest) { [weak self] coins, error in
             guard let self = self else { return }
             if let error = error {
                 self.isLoading = false
@@ -138,7 +137,7 @@ final class HomeViewController: UIViewController {
                 dispatchGroup.leave()
             }
         }
-
+        
         dispatchGroup.notify(queue: .main, execute: { [weak self] in
             guard let self = self else { return }
             self.isLoading = false
@@ -156,7 +155,8 @@ final class HomeViewController: UIViewController {
     
     @IBAction func handleSearchBarButton(_ sender: UIBarButtonItem) {
         let searchScreen = SearchViewController()
-        navigationController?.pushViewController(searchScreen, animated: true)
+        searchScreen.modalPresentationStyle = .fullScreen
+        present(searchScreen, animated: true, completion: nil)
     }
 }
 
@@ -233,7 +233,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         default:
             return detailScreen.uuid = ""
         }
-        navigationController?.tabBarController?.tabBar.isHidden = true
-        navigationController?.pushViewController(detailScreen, animated: true)
+        detailScreen.modalPresentationStyle = .fullScreen
+        present(detailScreen, animated: true, completion: nil)
     }
 }

@@ -28,6 +28,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet private weak var readMoreButton: UIButton!
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var tableViewHeight: NSLayoutConstraint!
+    @IBOutlet private weak var titleLabel: UILabel!
     
     private var coin: CoinDetail?
     private let repositoryAPI = RepositoryAPI()
@@ -59,7 +60,7 @@ final class DetailViewController: UIViewController {
         iconImageView.layer.cornerRadius = 50
     }
     
-    @objc func handleRefreshControl() {
+    @objc private func handleRefreshControl() {
         if !isLoading {
             isLoading = true
             loadAPI()
@@ -74,7 +75,7 @@ final class DetailViewController: UIViewController {
         guard let coin = coin else {
             return
         }
-        title = coin.name
+        titleLabel.text = coin.name
         priceLabel.formatPrice(price: coin.price)
         titleChangeLabel.formatChange(percentChange: coin.change)
         descriptionLabel.text = coin.description.htmlToString
@@ -168,11 +169,13 @@ final class DetailViewController: UIViewController {
         if isLabelAtMaxHeight {
             readMoreButton.setTitle("Read more", for: .normal)
             isLabelAtMaxHeight = false
-            descriptionHeight.constant = 150
+            descriptionHeight.constant = 70
         } else {
             readMoreButton.setTitle("Read less", for: .normal)
             isLabelAtMaxHeight = true
-            descriptionHeight.constant = getLabelHeight(text: coin?.description ?? "", width: view.bounds.width, font: descriptionLabel.font)
+            descriptionHeight.constant = getLabelHeight(text: coin?.description ?? "",
+                                                        width: view.bounds.width,
+                                                        font: descriptionLabel.font)
         }
     }
     
@@ -217,6 +220,10 @@ final class DetailViewController: UIViewController {
         }
     }
     
+    @IBAction func handleBackButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
@@ -239,14 +246,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let url = URL(string: links[indexPath.row].url) {
             let safariScreen = SFSafariViewController(url: url, entersReaderIfAvailable: true)
-            safariScreen.delegate = self
             present(safariScreen, animated: true)
         }
-    }
-}
-
-extension DetailViewController: SFSafariViewControllerDelegate {
-    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        dismiss(animated: true)
     }
 }
