@@ -17,6 +17,8 @@ final class SearchViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     
     private var isLoading = false
+    var fromBaseCurrency = false
+    var fromTargetCurrency = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,9 +123,26 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailScreen = DetailViewController()
-        detailScreen.uuid = coins[indexPath.row].uuid
-        detailScreen.modalPresentationStyle = .fullScreen
-        present(detailScreen, animated: true, completion: nil)
+        if fromBaseCurrency || fromTargetCurrency {
+            guard let presenter = presentingViewController as? ExchangeRatesViewController else {
+                return
+            }
+            
+            if fromBaseCurrency {
+                fromBaseCurrency = false
+                presenter.newBaseCurrency = coins[indexPath.row]
+            } else {
+                fromTargetCurrency = false
+                presenter.newTargetCurrency = coins[indexPath.row]
+            }
+            
+            presenter.validate()
+            dismiss(animated: false, completion: nil)
+        } else {
+            let detailScreen = DetailViewController()
+            detailScreen.uuid = coins[indexPath.row].uuid
+            detailScreen.modalPresentationStyle = .fullScreen
+            present(detailScreen, animated: true, completion: nil)
+        }
     }
 }
