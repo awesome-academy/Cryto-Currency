@@ -38,6 +38,8 @@
 		CE8930C626C2D12E0067793D /* SimpleCoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8930C426C2D12E0067793D /* SimpleCoinTableViewCell.swift */; };
 		CE8930C726C2D12E0067793D /* SimpleCoinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8930C526C2D12E0067793D /* SimpleCoinTableViewCell.xib */; };
 		CE8930CB26C3B6ED0067793D /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8930CA26C3B6ED0067793D /* Path.swift */; };
+		CE8930D026C41CDA0067793D /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8930CF26C41CDA0067793D /* Price.swift */; };
+		CE8930D226C4290C0067793D /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8930D126C4290C0067793D /* ExchangeRate.swift */; };
 		CEB201AF26B9333000ED19DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB201AE26B9333000ED19DD /* AppDelegate.swift */; };
 		CEB201B126B9333000ED19DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB201B026B9333000ED19DD /* SceneDelegate.swift */; };
 		CEB201B626B9333000ED19DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB201B426B9333000ED19DD /* Main.storyboard */; };
@@ -96,6 +98,8 @@
 		CE8930C426C2D12E0067793D /* SimpleCoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCoinTableViewCell.swift; sourceTree = "<group>"; };
 		CE8930C526C2D12E0067793D /* SimpleCoinTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleCoinTableViewCell.xib; sourceTree = "<group>"; };
 		CE8930CA26C3B6ED0067793D /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		CE8930CF26C41CDA0067793D /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
+		CE8930D126C4290C0067793D /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
 		CEB201AB26B9333000ED19DD /* Crypto-Currency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crypto-Currency.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB201AE26B9333000ED19DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEB201B026B9333000ED19DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -232,6 +236,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		CE8930CC26C41C750067793D /* ExchangeRates */ = {
+			isa = PBXGroup;
+			children = (
+				CE8930CF26C41CDA0067793D /* Price.swift */,
+				CE8930D126C4290C0067793D /* ExchangeRate.swift */,
+			);
+			path = ExchangeRates;
+			sourceTree = "<group>";
+		};
 		CEB201A226B9333000ED19DD = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +276,7 @@
 		CEB201D626BA48E900ED19DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE8930CC26C41C750067793D /* ExchangeRates */,
 				CE8930BE26C2D0140067793D /* SimpleCoin */,
 				CE8930A626C2461F0067793D /* Coins */,
 				CE8930A326C245F70067793D /* HistoryPrice */,
@@ -506,12 +520,14 @@
 				CE8930AC26C24F970067793D /* ResponseDetail.swift in Sources */,
 				CE8930B026C267390067793D /* LinkTableViewCell.swift in Sources */,
 				CE8930C026C2D02D0067793D /* SimpleCoin.swift in Sources */,
+				CE8930D226C4290C0067793D /* ExchangeRate.swift in Sources */,
 				CE8930A226C245EE0067793D /* DataDetailCoin.swift in Sources */,
 				CEB2020426BB89CB00ED19DD /* UIView+Extensions.swift in Sources */,
 				CEB201B126B9333000ED19DD /* SceneDelegate.swift in Sources */,
 				CEB201F726BAA28300ED19DD /* Coin.swift in Sources */,
 				CE89308C26C2217E0067793D /* LoadingTableViewCell.swift in Sources */,
 				CEB201DF26BA49DE00ED19DD /* FavoriteViewController.swift in Sources */,
+				CE8930D026C41CDA0067793D /* Price.swift in Sources */,
 				CEB2020D26BB8DF300ED19DD /* GetStartedViewController.swift in Sources */,
 				CE8930A026C245D50067793D /* Link.swift in Sources */,
 				CE8930CB26C3B6ED0067793D /* Path.swift in Sources */,

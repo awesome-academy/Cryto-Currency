@@ -149,8 +149,14 @@ final class HomeViewController: UIViewController {
     }
     
     @IBAction func handleExchangeRatesButton(_ sender: UIButton) {
+        guard let topMarketCap = topMarketCapCoins.first else {
+            return
+        }
+        
         let exchangeRatesScreen = ExchangeRatesViewController()
-        navigationController?.pushViewController(exchangeRatesScreen, animated: true)
+        exchangeRatesScreen.modalPresentationStyle = .fullScreen
+        exchangeRatesScreen.defaultCurrency = topMarketCap.name
+        present(exchangeRatesScreen, animated: true, completion: nil)
     }
     
     @IBAction func handleSearchBarButton(_ sender: UIBarButtonItem) {

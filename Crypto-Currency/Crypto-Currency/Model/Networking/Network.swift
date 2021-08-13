@@ -38,4 +38,8 @@ struct Network {
     func getSearchURL(name: String) -> String {
         return "\(baseUrl)/search-suggestions?query=\(name)"
     }
+    
+    func getExchangeRates(base: String, target: String) -> String {
+        return "\(baseUrl)/coin/\(base)/price?referenceCurrencyUuid=\(target)"
+    }
 }
