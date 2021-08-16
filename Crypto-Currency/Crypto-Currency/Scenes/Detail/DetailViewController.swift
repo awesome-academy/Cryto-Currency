@@ -29,6 +29,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var favoriteButton: UIButton!
     
     private var coin: CoinDetail?
     private let repositoryAPI = RepositoryAPI()
@@ -38,12 +39,25 @@ final class DetailViewController: UIViewController {
     var uuid: String = ""
     private var isLabelAtMaxHeight = false
     private var isLoading = true
+    private var isFavorite = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureChart()
         setUp()
         loadAPI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkFavoriteStatus()
+    }
+    
+    private func checkFavoriteStatus() {
+        if SimpleCoinManager.shared.checkCoin(uuid: uuid) {
+            isFavorite = true
+            configureFavoriteButton()
+        }
     }
     
     private func setUp() {
@@ -189,6 +203,14 @@ final class DetailViewController: UIViewController {
         return label.frame.size.height
     }
     
+    private func configureFavoriteButton() {
+        let image = isFavorite ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.favoriteButton.setBackgroundImage(image, for: .normal)
+        }
+    }
+    
     @IBAction func handleTimeSegmented(_ sender: UISegmentedControl) {
         var time = ""
         switch timeSegmented.selectedSegmentIndex {
@@ -222,6 +244,26 @@ final class DetailViewController: UIViewController {
     
     @IBAction func handleBackButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func handleFavoriteButton(_ sender: UIButton) {
+        guard let coin = coin else {
+            return
+        }
+        
+        let simpleCoin = SimpleCoin(uuid: coin.uuid,
+                              iconUrl: coin.iconUrl,
+                              name: coin.name,
+                              symbol: coin.symbol)
+        
+        if !isFavorite {
+            SimpleCoinManager.shared.createCoin(coin: simpleCoin)
+            isFavorite = true
+        } else {
+            SimpleCoinManager.shared.deleteCoin(uuid: coin.uuid)
+            isFavorite = false
+        }
+        configureFavoriteButton()
     }
     
 }
