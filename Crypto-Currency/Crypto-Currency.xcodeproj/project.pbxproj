@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE65FA4126CA1049000B5345 /* PresistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65FA4026CA1049000B5345 /* PresistentStorage.swift */; };
+		CE65FA4426CA1113000B5345 /* CoinRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65FA4326CA1113000B5345 /* CoinRepository.swift */; };
+		CE65FA4B26CA1207000B5345 /* CDCoin+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65FA4926CA1207000B5345 /* CDCoin+CoreDataClass.swift */; };
+		CE65FA4C26CA1207000B5345 /* CDCoin+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65FA4A26CA1207000B5345 /* CDCoin+CoreDataProperties.swift */; };
+		CE65FA4E26CA183A000B5345 /* SimpleCoinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65FA4D26CA183A000B5345 /* SimpleCoinManager.swift */; };
 		CE89307426BFE0590067793D /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE89307326BFE0590067793D /* Keys.plist */; };
 		CE89307626C0202E0067793D /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89307526C0202E0067793D /* ImageCache.swift */; };
 		CE89308126C112970067793D /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89307F26C112960067793D /* CoinTableViewCell.swift */; };
@@ -68,6 +73,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE65FA4026CA1049000B5345 /* PresistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresistentStorage.swift; sourceTree = "<group>"; };
+		CE65FA4326CA1113000B5345 /* CoinRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRepository.swift; sourceTree = "<group>"; };
+		CE65FA4926CA1207000B5345 /* CDCoin+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDCoin+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CE65FA4A26CA1207000B5345 /* CDCoin+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDCoin+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CE65FA4D26CA183A000B5345 /* SimpleCoinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCoinManager.swift; sourceTree = "<group>"; };
 		CE89307326BFE0590067793D /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		CE89307526C0202E0067793D /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		CE89307F26C112960067793D /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
@@ -141,11 +151,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE65FA3826C999F2000B5345 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				CEB201DE26BA49DE00ED19DD /* FavoriteViewController.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		CE65FA3F26CA1028000B5345 /* CoreDataSupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CE65FA4026CA1049000B5345 /* PresistentStorage.swift */,
+			);
+			path = CoreDataSupportFiles;
+			sourceTree = "<group>";
+		};
+		CE65FA4226CA10E1000B5345 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				CE65FA4326CA1113000B5345 /* CoinRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		CE8416A126C774D000748751 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				CE65FA4926CA1207000B5345 /* CDCoin+CoreDataClass.swift */,
+				CE65FA4A26CA1207000B5345 /* CDCoin+CoreDataProperties.swift */,
+				CE65FA4226CA10E1000B5345 /* Repository */,
+				CE65FA3F26CA1028000B5345 /* CoreDataSupportFiles */,
+				CE65FA4D26CA183A000B5345 /* SimpleCoinManager.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		CE89307D26C111710067793D /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
-				CE89307E26C112800067793D /* Cell */,
 				CEB201DC26BA49AF00ED19DD /* RankingViewController.swift */,
+				CE89307E26C112800067793D /* Cell */,
 			);
 			path = Ranking;
 			sourceTree = "<group>";
@@ -276,6 +322,7 @@
 		CEB201D626BA48E900ED19DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE8416A126C774D000748751 /* Database */,
 				CE8930CC26C41C750067793D /* ExchangeRates */,
 				CE8930BE26C2D0140067793D /* SimpleCoin */,
 				CE8930A626C2461F0067793D /* Coins */,
@@ -308,7 +355,7 @@
 				CEB201E026BA49F700ED19DD /* Search */,
 				CEB2021026BC273600ED19DD /* Home */,
 				CE89307D26C111710067793D /* Ranking */,
-				CEB201DE26BA49DE00ED19DD /* FavoriteViewController.swift */,
+				CE65FA3826C999F2000B5345 /* Favorite */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -509,13 +556,16 @@
 				CE89307626C0202E0067793D /* ImageCache.swift in Sources */,
 				CEB201DB26BA499400ED19DD /* HomeViewController.swift in Sources */,
 				CE8930B826C2BEDE0067793D /* SearchViewController.swift in Sources */,
+				CE65FA4C26CA1207000B5345 /* CDCoin+CoreDataProperties.swift in Sources */,
 				CE8930AA26C24A0C0067793D /* String+Extensions.swift in Sources */,
 				CEB201E926BA4A6A00ED19DD /* ExchangeRatesViewController.swift in Sources */,
+				CE65FA4126CA1049000B5345 /* PresistentStorage.swift in Sources */,
 				CE8930B526C27E0B0067793D /* Select.swift in Sources */,
 				CE8930C626C2D12E0067793D /* SimpleCoinTableViewCell.swift in Sources */,
 				CEB201F326BA8F0800ED19DD /* Response.swift in Sources */,
 				CEB201AF26B9333000ED19DD /* AppDelegate.swift in Sources */,
 				CE8930A826C246620067793D /* Supply.swift in Sources */,
+				CE65FA4E26CA183A000B5345 /* SimpleCoinManager.swift in Sources */,
 				CE89309E26C245BE0067793D /* DetailCoin.swift in Sources */,
 				CE8930AC26C24F970067793D /* ResponseDetail.swift in Sources */,
 				CE8930B026C267390067793D /* LinkTableViewCell.swift in Sources */,
@@ -531,10 +581,12 @@
 				CEB2020D26BB8DF300ED19DD /* GetStartedViewController.swift in Sources */,
 				CE8930A026C245D50067793D /* Link.swift in Sources */,
 				CE8930CB26C3B6ED0067793D /* Path.swift in Sources */,
+				CE65FA4B26CA1207000B5345 /* CDCoin+CoreDataClass.swift in Sources */,
 				CEB201B926B9333000ED19DD /* Crypto_Currency.xcdatamodeld in Sources */,
 				CE8930C226C2D0740067793D /* SimpleDataCoin.swift in Sources */,
 				CEB2021F26BCE07900ED19DD /* ReusableView.swift in Sources */,
 				CEB2021D26BCDD4400ED19DD /* Network.swift in Sources */,
+				CE65FA4426CA1113000B5345 /* CoinRepository.swift in Sources */,
 				CEB201F526BAA27100ED19DD /* DataCoin.swift in Sources */,
 				CEB2021726BC54F800ED19DD /* UIImageView+Extensions.swift in Sources */,
 				CEB2020F26BB9C6F00ED19DD /* UILabel+Extensions.swift in Sources */,
@@ -698,6 +750,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 42BJ859V33;
 				INFOPLIST_FILE = "Crypto-Currency/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -717,6 +770,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 42BJ859V33;
 				INFOPLIST_FILE = "Crypto-Currency/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
